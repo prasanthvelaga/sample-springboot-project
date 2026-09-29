@@ -6,12 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class BusinessProjectApplication {
+public class BusinessProjectApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args)
-	{
-		SpringApplication.run(BusinessProjectApplication.class, args);
-	
-	}
+    @Override
+    protected SpringApplicationBuilder configure(
+            SpringApplicationBuilder application) {
+        return application.sources(BusinessProjectApplication.class);
+    }
 
+    public static void main(String[] args) {
+        SpringApplication.run(BusinessProjectApplication.class, args);
+    }
 }
